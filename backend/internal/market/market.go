@@ -19,6 +19,7 @@ type Stock struct {
 	Name       string
 	Price      float64
 	Volatility float64
+	Bitcoin_miner int 
 }
 
 func runSimulation(days <-chan bool, wg *sync.WaitGroup) {
@@ -27,10 +28,12 @@ func runSimulation(days <-chan bool, wg *sync.WaitGroup) {
 
 	// Initialize everything
 	stocks := []Stock{
-		{"MEAT", 100.0, 0.005},
-		{"FISH", 50.0, 0.01},
-		{"PLANT", 20.0, 0.002},
-	}
+		{"MEAT", 100.0, 0.005,1},
+		{"FISH", 50.0, 0.01,1},
+		{"PLANT", 20.0, 0.002,1},
+		{"EGG", 0.00, 0.00,1},
+		{"INSECT", 0.00, 0.00,1},
+		}
 
 	for range days {
 
