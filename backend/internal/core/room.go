@@ -6,6 +6,8 @@ import (
 	"time"
 )
 
+const ROOM_MAX_USERS int = 2
+
 // Contains all server side game logic and game data
 type Room struct {
 	id         string

@@ -62,7 +62,7 @@ func (c *CoreServer) Init() {
 func (c *CoreServer) createLobby(id string) *Room {
 	room := &Room{
 		id:         id,
-		players:    map[net.Addr]*Player{},
+		players:    make(map[string]*Player),
 		mutex:      sync.RWMutex{},
 		broadcast:  make(chan []byte, 256),
 		register:   make(chan *Player),

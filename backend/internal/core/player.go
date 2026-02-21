@@ -1,6 +1,11 @@
 package core
 
-import "backend/internal/util"
+type PlayerActionType int
+
+const ()
+
+type PlayerAction struct {
+}
 
 type Player struct {
 	id       string

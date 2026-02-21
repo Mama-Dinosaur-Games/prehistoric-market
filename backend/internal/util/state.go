@@ -1,11 +1,11 @@
 package util
 
-type ConnectionType int
+type ConnectionState int
 
 // States can only change to the adjacent state, not any further
 // InMainMenu <-> InLobby <-> InGame
 const (
-	InMainMenu ConnectionType = iota
+	InMainMenu ConnectionState = iota
 	InLobby
 	InGame
 )
