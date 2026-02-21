@@ -48,9 +48,9 @@ type CoreServer struct {
 	quit        chan struct{}
 }
 
-func (c *CoreServer) Init() {
+func (server *CoreServer) Init() {
 	// Default values
-	c.roomCount = 0
+	server.roomCount = 0
 
 	http.HandleFunc("/ws", handleConnections)
 	err := http.ListenAndServe(":8080", nil)
@@ -59,7 +59,7 @@ func (c *CoreServer) Init() {
 	}
 }
 
-func (c *CoreServer) createLobby(id string) *Room {
+func (server *CoreServer) createLobby(id string) *Room {
 	room := &Room{
 		id:         id,
 		players:    make(map[string]*Player),
@@ -74,6 +74,6 @@ func (c *CoreServer) createLobby(id string) *Room {
 	return room
 }
 
-func (c *CoreServer) getLobbies() {
+func (server *CoreServer) getLobbies() {
 
 }

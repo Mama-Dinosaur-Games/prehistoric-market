@@ -12,6 +12,7 @@ const ROOM_MAX_USERS int = 2
 type Room struct {
 	id         string
 	players    map[string]*Player
+	gameState  *GameState
 	mutex      sync.RWMutex
 	broadcast  chan []byte
 	register   chan *Player
@@ -40,7 +41,6 @@ func (room *Room) Run() {
 func (room *Room) broadcastToAll(message []byte) {
 	room.mutex.Lock()
 	defer room.mutex.RUnlock()
-
 	for _, player := range room.players {
 		select {
 		case player.sendChan <- message:
