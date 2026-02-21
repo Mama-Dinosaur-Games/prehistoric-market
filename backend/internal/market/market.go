@@ -78,6 +78,14 @@ func (s *Stock) UpdatePrice(day int) {
 
 	s.Price *= 1 + epsilon + pointEffect
 
+}	
+
+func (s *Portfolio) buyStock(portfolios []Portfolio, player int, stockName string){
+	portfolios[player].Shares[stockName] ++
+}
+
+func (s *Portfolio) sellStock(portfolios []Portfolio, player int, stockName string){
+	portfolios[player].Shares[stockName] --
 }
 
 func Run() {
